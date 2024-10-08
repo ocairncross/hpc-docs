@@ -25,8 +25,7 @@ This is done with a terminal emulator running on your local machine.
 Putty (Windows), Terminal (Mac), or VS Code.
 
 ### The Jupyter Interface
-Jupyter Labs or Notebook is a simple interactive interface available via Bunya's [On Demand](guides/OnDemand-Guide.md)
-
+Jupyter Labs or Notebook is a simple interactive interface available via Bunya's [On Demand](OnDemand-Guide.md) guide.
 
 
 Several ways to interact with Bunya. These are the methods important to Python users:
