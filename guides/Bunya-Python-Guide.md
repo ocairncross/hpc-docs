@@ -14,27 +14,23 @@ Many of the concepts covered here are detailed in Bunya's general user documenta
 
 > **Note:** This guide assumes the reader has some knowledge of running Python on their own workstation or laptop but is unfamiliar with Bunya or HPC systems in general.
 
-## Operation Modes
-There are two methods of running Python programs on Bunya:
-the command line interface; and the Jupyter Lab or Notebook interface.
-It is not uncommon to use both methods depending on the situation.
+## Interaction
+The **command line interface** and the **Jupyter** environment are two primary methods of interacting with Bunya to create, run and debug Python programs.
+Both methods have advantages and disadvantages. Sometimes a mix of using both is the most productive way of using Bunya for Python.
+
+### The Jupyter Interface
+Jupyter Labs or Notebook is a simple interactive interface available via Bunya's [On Demand](OnDemand-Guide.md) portal. It is similar to a Jupyter environment running a personal workstation or laptop with some important differences which are covered later in this guide.
+
+More Jupyter stuff here.
 
 ### Command Line Interface
 The command line interface is the traditional way of interacting with HPC systems.
 This is done with a terminal emulator running on your local machine.
 Putty (Windows), Terminal (Mac), or VS Code.
 
-### The Jupyter Interface
-Jupyter Labs or Notebook is a simple interactive interface available via Bunya's [On Demand](OnDemand-Guide.md) guide.
 
 
-Several ways to interact with Bunya. These are the methods important to Python users:
 
-| Mode        | Use Case                                                                                 |
-|-------------|------------------------------------------------------------------------------------------|
-| Interactive | Create environments and debug Python programs. Work should not last longer than an hour. |
-| Batch       | Schedule Python programs to run on the queuing system.                                   |
-| On Demand   | Work interactively in a friendly environment using Jupyter Labs or Notebooks.            |
 
 
 ## The Module System
