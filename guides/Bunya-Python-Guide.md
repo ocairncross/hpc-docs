@@ -15,11 +15,21 @@ Many of the concepts covered here are detailed in Bunya's general user documenta
 > **Note:** This guide assumes the reader has some knowledge of running Python on their own workstation or laptop but is unfamiliar with Bunya or HPC systems in general.
 
 ## Operation Modes
-There are two methods of running Python programs on Bunya[^1].
+There are two methods of running Python programs on Bunya:
+the command line interface; and the Jupyter Lab or Notebook interface.
+It is not uncommon to use both methods depending on the situation.
 
-[^1]:   There are other methods, but these are advanced and will not be covered
+### Command Line Interface
+The command line interface is the traditional way of interacting with HPC systems.
+This is done with a terminal emulator running on your local machine.
+Putty (Windows), Terminal (Mac), or VS Code.
 
-several ways to interact with Bunya. These are the methods important to Python users:
+### The Jupyter Interface
+Jupyter Labs or Notebook is a simple interactive interface available via Bunya's [On Demand](guides/OnDemand-Guide.md)
+
+
+
+Several ways to interact with Bunya. These are the methods important to Python users:
 
 | Mode        | Use Case                                                                                 |
 |-------------|------------------------------------------------------------------------------------------|
