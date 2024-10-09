@@ -23,7 +23,8 @@ The concepts are covered in the following sections:
    1. [The Jupyter Interface](#the-jupyter-interface)
    2. [Command Line Interface](#command-line-interface)
 
-> **Note:** It is assumed you are familiar with managing Python environments on personal workstations or laptops but are unfamiliar with Bunya or HPC systems.
+> [!Note]
+> It is assumed you are familiar with managing Python environments on personal workstations or laptops but are unfamiliar with Bunya or HPC systems.
 
 ## Compute Nodes
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
