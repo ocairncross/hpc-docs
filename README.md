@@ -6,6 +6,9 @@ This project is for providing _up-to-date_ information about HPC systems operate
 
 [Bunya User Guide](guides/Bunya-User-Guide.md)
 
+[Bunya Python Guide](guides/Bunya-Python-Guide.md)<br>
+Information focused on running Python code on Bunya
+
 [Where should my software and data go on Bunya?](guides/Bunya-UserData-Guide.md)<br>
 Your spaces in *home*, *scratch*, *$TMPDIR* and *RDM*
 
@@ -22,8 +25,7 @@ Webportal to access Bunya
 
 [Software Installation Status](guides/Software-Status.md)
 
-[RCC's Interactive tool for building SLURM job scripts](https://shiny.rcc.uq.edu.au/SLURM/)
-<br>
+[RCC's Interactive tool for building SLURM job scripts](https://shiny.rcc.uq.edu.au/SLURM/)<br>
 This is an external website that guides you in creating successful SLURM job submissions for Bunya HPC.
 
 [Information how to login and use the CVL@Wiener system](https://imagingtools.au/characterisation-virtual-laboratory/cvl-wiener)
