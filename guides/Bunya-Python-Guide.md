@@ -1,7 +1,9 @@
 # Python Guide for Bunya
 
 ## Introduction
-This guide will help you make the <span style="color: blue">most of the Bunya</span> HPC cluster for your Python-based research.
+This guide will help you make the
+<span style="color: blue">most of the Bunya</span>
+HPC cluster for your Python-based research.
 It provides information for researchers who want to combine Python's extensive ecosystem with Bunya's powerful computing resources.
 Resources provided by Bunya include:
 
