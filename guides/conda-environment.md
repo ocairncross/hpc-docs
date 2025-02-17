@@ -11,7 +11,7 @@ load the module and initialise the environment with the following commands:<br>
 ### Miniconda
 load the module and initialise the environment with the following commands:<br>
 `module load miniconda3`<br>
-`source $EBROOTMINICONDA3/etc/profile.d/conda.sh`
+`source $EBROOTANACONDA3/etc/profile.d/conda.sh`
 
 ### Miniforge
 load the module and initialise the environment with the following commands:<br>
@@ -19,7 +19,7 @@ load the module and initialise the environment with the following commands:<br>
 `mf-activate`<br><br>
 Notes about Miniforge
 - Miniforge includes the `mamba` command in addition to `conda`. The mamba command can be used instead of conda and has the same syntax. Think of mamba as a faster version of conda—the two commands are interchangeable.
-- Miniforge only provides open source packages whereas Anaconda can provide packages under the Anaconda Inc. licence. For this reason we recommend using the Miniforge module.
+- Miniforge only provides open source packages whereas Anaconda can provide packages under the Anaconda Inc. license. For this reason we recommend using the Miniforge module.
 If we create a python environment using mamba we still call it a 'conda' environment, mamba is 100% compatible with a conda. Also, the configuration methods discussed here (e.g., the conda.rc file) also apply to mamba.
 
 ## Base conda environment
@@ -117,7 +117,7 @@ Users can also clean their `.bashrc` file by using `conda init` again with <br>
 
 ## Advice on conda and onBunya usage
 
-If you have the conda initialisation in your `.bashrc` file then you cannot use Open OnDemand. To use the virutal desktop in Open OnDemand you need to have clean `.bashrc` file. The easiest was to clean it is to run <br>
+If you have the conda initialisation in your `.bashrc` file then you cannot use Open OnDemand. To use the virtual desktop in Open OnDemand you need to have clean `.bashrc` file. The easiest was to clean it is to run <br>
 `conda init --reverse`<br>
 
 For further information on conda environments please go [here](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#).
