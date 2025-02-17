@@ -1,8 +1,106 @@
 # Conda, conda installs and conda environments
 
-## Advice on user installed conda
+## Using a conda module
+Anaconda3, Miniconda3 and Miniforge are available as modules on Bunya. They can be loaded with the `module load` command.
 
-The advice to users is to avoid running the conda initialisation which writes to the user's `.bashrc` file. This changes the user's shell permanently and can cause problems. If your prompt has a `(base)` attached to it when you log in then your `.bashrc` file has already been changed. You can reverse this by cleaning up your `.bashrc` file and sourcing the `conda.sh` file from your installation. Users can then use<br>
+### Anaconda
+load the module and initialise the environment with the following commands:<br>
+`module load anaconda3`<br>
+`source $EBROOTANACONDA3/etc/profile.d/conda.sh`
+
+### Miniconda
+load the module and initialise the environment with the following commands:<br>
+`module load miniconda3`<br>
+`source $EBROOTMINICONDA3/etc/profile.d/conda.sh`
+
+### Miniforge
+load the module and initialise the environment with the following commands:<br>
+`module load miniforge`<br>
+`mf-activate`<br><br>
+Notes about Miniforge
+- Miniforge includes the `mamba` command in addition to `conda`. The mamba command can be used instead of conda and has the same syntax. Think of mamba as a faster version of conda—the two commands are interchangeable.
+- Miniforge only provides open source packages whereas Anaconda can provide packages under the Anaconda Inc. licence. For this reason we recommend using the Miniforge module.
+If we create a python environment using mamba we still call it a 'conda' environment, mamba is 100% compatible with a conda. Also, the configuration methods discussed here (e.g., the conda.rc file) also apply to mamba.
+
+## Base conda environment
+
+If you want to activate the base conda environment you can do<br>
+`[username@bunya3 ~]$ conda activate`<br>
+`(base) [username@bunya3 ~]$`<br> 
+
+Exit the base conda environment with do<br>
+`(base) [username@bunya3 ~]$ conda deactivate`<br>
+`[username@bunya3 ~]$`<br>
+
+You can run python and access the packages in the base environment, but you can not install anything into it. To install your own packages you must create and activate an environment.
+
+## Creating a new conda environment
+
+Create a conda environment called `myenv` in the default location<br>
+`conda create --name myenv`<br>
+A new environment will be created in the default location (normally `/home/UserName/.conda`) with latest version of python available for Bunya.
+
+
+Please note: By default environments are installed into the `envs` directory in your conda directory which is `/home/YourUsername/.conda`. If you need to specify a particular location for an environment please  [here](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#specifying-location).
+
+2. When conda asks you to proceed type `y`
+
+3. To create an environment with a specific python version, for example python 3.9:<br>
+`conda create --name myenv python=3.9`
+
+4. To create an environment with a specific package, for example scipy:<br>
+`conda create --name myenv scipy`<br>
+or<br>
+`conda create --name myenv`<br>
+`conda install --name myenv scipy`<br>
+
+5.  To create an environment with a specific version of Python and multiple packages:<br>
+`conda create --name myenv python=3.9 scipy=0.17.3 astroid babel`
+
+Tip: Install all the programs that you want in this environment at the same time. Installing 1 program at a time can lead to dependency conflicts.
+
+## Settings the location of conda environments and package caches
+
+On Bunya your home directory `/home/username` has 50GB of space and 1 million files for environments and their packages. However, in case this is not enough space in home you can place environments in  `/scratch/user/username` where there is more space available. The default location for environments can be set in the [Conda configuration file](https://docs.conda.io/projects/conda/en/latest/user-guide/configuration/use-condarc.html), `.condarc` file. See specifically instructions on envs location [here](https://docs.conda.io/projects/conda/en/latest/user-guide/configuration/use-condarc.html#specify-environment-directories-envs-dirs).
+
+In your home directory open the `.condarc` file. You can use `nano` for this or `vi`, what ever you are comfortable with.
+
+The insert these lines:
+
+```
+envs_dirs:
+  - /scratch/rest-of-the-path-of-location/envs
+```
+
+Examples of environment locations can be
+
+`/scratch/user/username/rest-of-path/envs`
+
+or
+
+`/scratch/project/project-name/rest-of-path/envs`
+
+This will allow you to install environments and find them by name. You will not need the full path to activate the environment.
+
+## Activating a conda environment
+
+`conda activate myenv`
+
+## Deactivating a conda environment
+
+`conda deactivate myenv`
+
+## Advice for pip installs
+
+If you need to install a mix of conda and pip packages, install the conda packages first.
+
+If you want to install only pip packages it is **highly recommended** that you create a conda environment and install
+the pip packages into it. To do so create the conda environment, activate it and run `conda install pip`.
+After conda installs pip use pip to install your packages `pip install some-library`. **It is important to install pip using conda first**
+
+## Advice on installing your own conda
+
+Avoid running the conda initialisation which writes to your `.bashrc` file. This changes your shell permanently and can cause problems. If your prompt has a `(base)` in it when you log in then your `.bashrc` file has already been changed. You can reverse this by cleaning up your `.bashrc` file and sourcing the `conda.sh` file from your installation. You can then use<br>
 `conda activate`<br> 
 to switch on the conda base environment and<br>
 `conda deactivate` <br>
@@ -22,126 +120,5 @@ Users can also clean their `.bashrc` file by using `conda init` again with <br>
 If you have the conda initialisation in your `.bashrc` file then you cannot use Open OnDemand. To use the virutal desktop in Open OnDemand you need to have clean `.bashrc` file. The easiest was to clean it is to run <br>
 `conda init --reverse`<br>
 
-
-## Using a conda module
-
-### Bunya
-
-There is no need to install Anaconda3 or Miniconda3 yourself. Both are available as modules on Bunya. 
-
-Please load the relevant module. 
-
-```
-anaconda3/2022.05
-miniconda3/4.12.0
-```
-Then set up your shell to use the chosen conda version. Using the environmental variables `$EBROOTANACONDA3` or `$EBROOTMINICONDA3` will ensure that you pick the correct one on any node architecture. This is important as the paths to the installation can differ on compute nodes with different architecture. It also means it will still work no matter wich version of anaconda3 or miniconda3 you loaded.
-
-`source $EBROOTANACONDA3/etc/profile.d/conda.sh`<br>
-or<br>
-`source $EBROOTMINICONDA3/etc/profile.d/conda.sh`<br>
-
-Now your shell is ready to create a conda environment.
-
-## Base conda environment
-
-If you want to activate the base conda environment you can do<br>
-`[username@bunya3 ~]$ conda activate`<br>
-`(base) [username@bunya3 ~]$`<br> 
-
-And to get out of the base conda environment you can do<br>
-`(base) [username@bunya3 ~]$ conda deactivate`<br>
-`[username@bunya3 ~]$`<br>
-
-This also works on Wiener.
-
-## Creating a new conda environment
-
-1. Here we are creating a conda environment called `myenv` which you can replace by a name more relevant to you<br>
-`conda create --name myenv`
-
-Please note: By default environments are installed into the `envs` directory in your conda directory which is `/home/YourUsername/.conda`. If you need to specify a particular location for an environment please have a look [here](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#specifying-location).
-
-2. When conda asks you to proceed type `y`
-
-3. To create an environment with a specific python version, for example python 3.9:<br>
-`conda create --name myenv python=3.9`
-
-4. To create an environment with a specific package, for example scipy:<br>
-`conda create --name myenv scipy`<br>
-or<br>
-`conda create --name myenv`<br>
-`conda install --name myenv scipy`<br>
-
-5.  To create an environment with a specific version of Python and multiple packages:<br>
-`conda create --name myenv python=3.9 scipy=0.17.3 astroid babel`
-
-Tip: Install all the programs that you want in this environment at the same time. Installing 1 program at a time can lead to dependency conflicts.
-
-## Changing the location of conda environments and package caches
-
-On Bunya the home directory has 50GB of space and 1 million files to allow installation of environments. However, in case this is to install shared environments into `/scratch`, this is an easy way to do this. To have this setup so environments are installed in a different location automatically and also found it is best to use the [Conda configuration file](https://docs.conda.io/projects/conda/en/latest/user-guide/configuration/use-condarc.html), `.condarc`. See specifically instructions on envs location [here](https://docs.conda.io/projects/conda/en/latest/user-guide/configuration/use-condarc.html#specify-environment-directories-envs-dirs).
-
-In your home directory open the `.condarc` file. You can use `nano` for this or `vi`, what ever you are comfortable with.
-
-The insert these lines:
-
-```
-envs_dirs:
-  - /scratch/rest-of-the-path-of-location/envs
-```
-Or you can do 
-
-```
-cat << EOF >> $HOME/.condarc
-
-```
-You will see a `>` once you pressed the enter key. Now enter these lines (you can copy and paste)
-
-```
-envs_dirs:
-   - /scratch/rest-of-the-path-of-location/envs
-EOF
-
-```
-The should return you (the `>` should disappear). If not press the enter key again.
-
-Check that the lines have been added by typing
-
-`cat $HOME/.condarc`
-
-On Bunya the location for the environments can be
-
-`/scratch/user/username/rest-of-path/envs`
-
-or
-
-`/scratch/project/project-name/rest-of-path/envs`
-
-On Wiener the location can be 
-
-`/scratch/my-org/username/rest-of-path/envs`
-
-This will allow you to install environments and find them by name. You will not need the full path to activate the environment.
-
-## Activating a conda environment
-
-`conda activate myenv`
-
-## Deactivating a conda environment
-
-`conda deactivate myenv`
-
 For further information on conda environments please go [here](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#).
-
-
-
-
-
-
-
-
-
-
-
 
