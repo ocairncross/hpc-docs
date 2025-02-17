@@ -4,17 +4,17 @@
 Anaconda3, Miniconda3 and Miniforge are available as modules on Bunya. They can be loaded with the `module load` command.
 
 ### Anaconda
-load the module and initialise the environment with the following commands:<br>
+Load the module and initialise the environment with the following commands:<br>
 `module load anaconda3`<br>
 `source $EBROOTANACONDA3/etc/profile.d/conda.sh`
 
 ### Miniconda
-load the module and initialise the environment with the following commands:<br>
+Load the module and initialise the environment with the following commands:<br>
 `module load miniconda3`<br>
 `source $EBROOTANACONDA3/etc/profile.d/conda.sh`
 
 ### Miniforge
-load the module and initialise the environment with the following commands:<br>
+Load the module and initialise the environment with the following commands:<br>
 `module load miniforge`<br>
 `mf-activate`<br><br>
 Notes about Miniforge
