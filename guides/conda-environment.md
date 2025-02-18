@@ -49,18 +49,19 @@ Load the module and initialise the environment with the following commands:<br><
 - Miniconda has the same licence issues as Anaconda.
 
 # Conda Environments
-Conda environments should not be confused with the conda modules which contain
-the software to manage the environments. Conda environments contain the software
-and packages required to run python applications. After loading and initialising
-a conda module (e.g., Miniconda) you can activate, deactivate, create and delete
-environments.
+Conda environments should not be confused with the
+[conda modules](#conda-modules). The modules contain software to manage
+environments whereas, conda environments contain software and packages that run
+your python applications. After loading and initialising a conda module (e.g.,
+Miniconda) you can activate, deactivate, create and delete environments.
 
 ## Activating
 To activate an environment stored in your default environment home, use:<br>
 `conda activate my-env`<br> After running this command python has access to
-packages installed in the my-env environment.<br> You can also activate an
-environment from other locations by using a path to the environment using:<br> conda
-activate -p /scratch/project/big-data-project/our-env<br>
+packages and software installed in the my-env environment.<br> You can also
+activate an environment from other locations by specifying the path to the
+environment using:<br> conda activate -p
+/scratch/project/big-data-project/our-env<br>
 
 ## Deactivating
 Deactivate an environment with:<br>`conda deactivate`<br>Environments must be
