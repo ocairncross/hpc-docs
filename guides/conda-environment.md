@@ -64,7 +64,7 @@ environment using:<br> conda activate -p
 /scratch/project/big-data-project/our-env<br>
 
 ## Deactivating
-Deactivate an environment with:<br>`conda deactivate`<br>Environments must be
+Deactivate your current environment with:<br><br>`conda deactivate`<br><br>Environments must be
 deactivated before they can be deleted.
 
 ## Base conda environment
