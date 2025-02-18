@@ -56,8 +56,8 @@ your python applications. After loading and initialising a conda module (e.g.,
 Miniconda) you can activate, deactivate, create and delete environments.
 
 ## Activating
-To activate an environment stored in your default environment home, use:<br>
-`conda activate my-env`<br> After running this command python has access to
+To activate an environment stored in your default environment home, use:<br><br>
+`conda activate my-env`<br><br> After running this command python has access to
 packages and software installed in the my-env environment.<br> You can also
 activate an environment from other locations by specifying the path to the
 environment using:<br> conda activate -p
