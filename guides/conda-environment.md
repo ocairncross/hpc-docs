@@ -1,4 +1,4 @@
-# Conda, conda installs and conda environments
+# Conda Modules
 Conda is a useful tool to create isolated python environments and
 install packages. Three modules on Bunya provide conda.
 
@@ -17,15 +17,15 @@ required to initialise it. This is done as follows:
 ### Miniforge
 Load the module and initialise the environment with the following commands:<br><br>
 `module load miniforge`<br>
-`mf-activate`<br><br>
+`mf-init`<br><br>
 - Miniforge includes the `mamba` command in addition to `conda`. The mamba
   command can be used instead of conda and has the same syntax. Think of `mamba`
   as a faster version of `conda`—the two commands are interchangeable.<br>
 - When `mamba` is used to create an environment, it is still referred to as a
   _conda_ environment. Also, the configuration methods discussed here (e.g., the
-  conda.rc file) also apply to mamba. `mamba` is 100% compatible with `conda`.
+  conda.rc file) also apply to `mamba`. `mamba` is 100% compatible with `conda`.
 - By default Miniforge provides open source packages from the conda-forge channel
-  whereas Anaconda can provide packages under the Anaconda Inc. license. For
+  whereas, Anaconda can provide packages under the Anaconda Inc. license. For
   this reason we recommend using the Miniforge module.
 
 ### Anaconda
@@ -43,10 +43,28 @@ Load the module and initialise the environment with the following commands:<br><
 Load the module and initialise the environment with the following commands:<br><br>
 `module load miniconda3`<br>
 `source $EBROOTANACONDA3/etc/profile.d/conda.sh`<br><br>
-- Using Miniconda module is practically the same as Anaconda on Bunya.
-  Installing packages may download more files compared to the Anaconda module
-  but you probably will not notice much difference.
+- Using Miniconda module is practically the same as the Anaconda module for a
+  Bunya user. Installing packages may download more files compared to the
+  Anaconda module but you probably won't notice much difference.
 - Miniconda has the same licence issues as Anaconda.
+
+# Conda Environments
+Conda environments should not be confused with the conda modules which contain
+the software to manage the environments. Conda environments contain the software
+and packages required to run python applications. After loading and initialising
+a conda module (e.g., Miniconda) you can activate, deactivate, create and delete
+environments.
+
+## Activating
+To activate an environment stored in your default environment home, use:<br>
+`conda activate my-env`<br> After running this command python has access to
+packages installed in the my-env environment.<br> You can also activate an
+environment from other locations by using a path to the environment using:<br> conda
+activate -p /scratch/project/big-data-project/our-env<br>
+
+## Deactivating
+Deactivate an environment with:<br>`conda deactivate`<br>Environments must be
+deactivated before they can be deleted.
 
 ## Base conda environment
 If you want to activate the base conda environment you can do<br>
