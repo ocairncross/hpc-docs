@@ -11,7 +11,7 @@ We recommend using the miniforge module to manage python environments.
 
 ## Using Conda Modules
 Conda environment modules are loaded with the `module load` command.
-[software](Bunya-User-Guide.md#software)
+[🢅](Bunya-User-Guide.md#software)
 
 ### Anaconda
 Load the module and initialise the environment with the following commands:<br>
