@@ -1,16 +1,17 @@
 # Conda, conda installs and conda environments
 Conda is a useful tool that lets you create isolated python environments and
-install packages into them. Three modules are available on Bunya that provide
-conda.
+install packages into them. Three modules on Bunya provide conda.
+
 - miniforge
 - anaconda3
 - miniconda3
 
+We recommend using the miniforge module to manage python environments.
 
 
-## Using a conda module
-Anaconda3, Miniconda3 and Miniforge are available as modules on Bunya. They can
-be loaded with the `module load` command.
+## Using Conda Modules
+Conda environment modules are loaded with the `module load` command.
+[software](Bunya-User-Guide.md#software)
 
 ### Anaconda
 Load the module and initialise the environment with the following commands:<br>
