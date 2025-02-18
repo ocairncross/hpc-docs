@@ -10,33 +10,43 @@ We recommend using the miniforge module to manage python environments.
 
 
 ## Using Conda Modules
-Conda environment modules are loaded with the `module load` command.
-[🢅](Bunya-User-Guide.md#software)
-
-### Anaconda
-Load the module and initialise the environment with the following commands:<br>
-`module load anaconda3`<br>
-`source $EBROOTANACONDA3/etc/profile.d/conda.sh`
-
-### Miniconda
-Load the module and initialise the environment with the following commands:<br>
-`module load miniconda3`<br>
-`source $EBROOTANACONDA3/etc/profile.d/conda.sh`
+Conda environment modules are loaded with the `module load` command
+[🢅](Bunya-User-Guide.md#software). After loading a module a further command is
+required to initialise it. This is done as follows:
 
 ### Miniforge
-Load the module and initialise the environment with the following commands:<br>
+Load the module and initialise the environment with the following commands:<br><br>
 `module load miniforge`<br>
 `mf-activate`<br><br>
-Notes about Miniforge
 - Miniforge includes the `mamba` command in addition to `conda`. The mamba
   command can be used instead of conda and has the same syntax. Think of mamba
-  as a faster version of conda—the two commands are interchangeable.
-- Miniforge only provides open source packages whereas Anaconda can provide
-  packages under the Anaconda Inc. license. For this reason we recommend using
-  the Miniforge module. If we create a python environment using mamba we still
-  call it a 'conda' environment, mamba is 100% compatible with a conda. Also,
-  the configuration methods discussed here (e.g., the conda.rc file) also apply
-  to mamba.
+  as a faster version of conda—the two commands are interchangeable.<br><br>
+- When `mamba` is used to create an environment, it is still referred to as a
+  _conda_ environment. Also, the configuration methods discussed here (e.g., the
+  conda.rc file) also apply to mamba. `mamba` is 100% compatible with `conda`.
+- By default Miniforge provides open source packages from the conda-forge channel
+  whereas Anaconda can provide packages under the Anaconda Inc. license. For
+  this reason we recommend using the Miniforge module.
+
+### Anaconda
+Load the module and initialise the environment with the following commands:<br><br>
+`module load anaconda3`<br>
+`source $EBROOTANACONDA3/etc/profile.d/conda.sh`<br><br>
+- By default Anaconda provides packages from it's _default_ channel which may
+  require paid licenses
+  [🢅](https://docs.conda.io/projects/conda/en/stable/user-guide/concepts/channels.html#what-is-a-channel).
+  For this reason we recommend using Miniforge if possible. If you require a
+  package only available from Anaconda ensure that you have complied with any
+  licence requierments.
+
+### Miniconda
+Load the module and initialise the environment with the following commands:<br><br>
+`module load miniconda3`<br>
+`source $EBROOTANACONDA3/etc/profile.d/conda.sh`<br><br>
+- Using Miniconda module is practically the same as Anaconda on Bunya.
+  Installing packages may download more files compared to the Anaconda module
+  but you probably will not notice much difference.
+- Miniconda has the same licence issues as Anaconda.
 
 ## Base conda environment
 If you want to activate the base conda environment you can do<br>
