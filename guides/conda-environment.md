@@ -1,6 +1,6 @@
 # Conda, conda installs and conda environments
-Conda is a useful tool that lets you create isolated python environments and
-install packages into them. Three modules on Bunya provide conda.
+Conda is a useful tool to create isolated python environments and
+install packages. Three modules on Bunya provide conda.
 
 - miniforge
 - anaconda3
@@ -19,8 +19,8 @@ Load the module and initialise the environment with the following commands:<br><
 `module load miniforge`<br>
 `mf-activate`<br><br>
 - Miniforge includes the `mamba` command in addition to `conda`. The mamba
-  command can be used instead of conda and has the same syntax. Think of mamba
-  as a faster version of conda—the two commands are interchangeable.<br><br>
+  command can be used instead of conda and has the same syntax. Think of `mamba`
+  as a faster version of `conda`—the two commands are interchangeable.<br>
 - When `mamba` is used to create an environment, it is still referred to as a
   _conda_ environment. Also, the configuration methods discussed here (e.g., the
   conda.rc file) also apply to mamba. `mamba` is 100% compatible with `conda`.
