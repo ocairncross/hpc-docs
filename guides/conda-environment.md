@@ -1,4 +1,39 @@
-# Conda Modules
+# Conda
+Conda is a Python environment and package manager. It supports isolated
+environments and enables you to manage dependencies for your Python projects. It
+provides a large set of precompiled binaries for applications such as
+Tensorflow, PyTorch, NumPy, Pandas, and many more.
+
+## Conda Channels  
+
+Conda channels are repositories that host precompiled packages.<br>By default, Conda pulls packages from the `defaults` channel, maintained by Anaconda, Inc. Some of these packages are subject to Anaconda Inc's licensing terms [🢅](https://docs.conda.io/projects/conda/en/stable/user-guide/concepts/channels.html#what-is-a-channel).
+
+> [!NOTE]
+> The University of Queensland is licensed under Anaconda’s commercial terms to use packages from the defaults channel.
+
+However the`conda-forge` is preferred due to its broader package availability and improved dependency resolution.
+
+### Licensing Considerations  
+
+The `defaults` channel includes packages built by Anaconda, Inc., some of which
+are subject to **Anaconda's commercial licensing terms** when used in commercial
+or enterprise environments. Users in academic or open-source research settings
+may still use these packages freely, but organizations should verify compliance.  
+
+In contrast, `conda-forge` is a **community-driven channel** that builds
+packages using freely available source code under open-source licenses, avoiding
+Anaconda's commercial restrictions. For users in research and enterprise
+settings, `conda-forge` is often the preferred choice to ensure unrestricted  
+use.
+
+
+
+To specify channels, use the `-c` flag during installation:  
+
+```bash
+conda install -c conda-forge numpy
+```
+
 Conda is a useful tool to create isolated python environments and
 install packages. Three modules on Bunya provide conda.
 
@@ -60,30 +95,23 @@ To activate an environment stored in your default environment home, use:<br><br>
 `conda activate my-env`<br><br> After running this command python has access to
 packages and software installed in the my-env environment.<br> You can also
 activate an environment from other locations by specifying the path to the
-environment using:<br> conda activate -p
-/scratch/project/big-data-project/our-env<br>
+environment using:<br><br>`conda activate -p
+/scratch/project/big-data-project/our-env`<br>
 
 ## Deactivating
 Deactivate your current environment with:<br><br>`conda deactivate`<br><br>Environments must be
 deactivated before they can be deleted.
 
-## Base conda environment
-If you want to activate the base conda environment you can do<br>
-`[username@bunya3 ~]$ conda activate`<br>
-`(base) [username@bunya3 ~]$`<br> 
+## The Base Environment
+If you want to simply run python without installing any packages you may do this
+from the base environment. Activate the base conda environment with:<br><br>
+`conda activate`<br><br> You can run python and access any packages in the base
+environment, but you can't install anything into it. To install packages create
+and activate your own environment.
 
-Exit the base conda environment with do<br>
-`(base) [username@bunya3 ~]$ conda deactivate`<br>
-`[username@bunya3 ~]$`<br>
-
-You can run python and access the packages in the base environment, but you can
-not install anything into it. To install packages create and activate your own
-environment.
-
-## Creating a new conda environment
-
-Create a conda environment called `myenv` in the default location<br>
-`conda create --name myenv`<br> A new environment will be created in the default
+## Creating an Environment
+Create a conda environment called `myenv` in the default location<br><br>
+`conda create myenv`<br><br> A new environment will be created in the default
 location (normally `/home/UserName/.conda`) with latest version of python
 available for Bunya.
 
