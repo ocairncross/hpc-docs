@@ -37,6 +37,9 @@ Other channels are available such as:
 - `bioconda` — bioinformatics and genomics software
 - `nvidia` — GPU-accelerated libraries
 - `pytorch` — official PyTorch packages
+- `bioconda` — bioinformatics and genomics software
+- `nvidia` — GPU-accelerated libraries
+- `pytorch` — official PyTorch packages
 
 These channels should be used as needed on a case-by-case basis. In most cases,
 the required packages can be found on `conda-forge`, but certain specialized
