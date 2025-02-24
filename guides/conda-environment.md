@@ -12,7 +12,8 @@ Conda channels are repositories that host precompiled packages.
 By default, Conda pulls packages from the `defaults` channel, maintained by Anaconda, Inc. The use of the `defaults` channel is subject to Anaconda Inc's licensing terms [🢅](https://docs.conda.io/projects/conda/en/stable/user-guide/concepts/channels.html#what-is-a-channel).
 
 > [!NOTE]
-> The University of Queensland is licensed under Anaconda Inc.’s commercial terms to use packages from the `defaults` channel.
+> The University of Queensland is licensed under Anaconda Inc.’s commercial
+> terms to use packages from the `defaults` channel.
 
 Packages available in `defaults` are curated by Anaconda Inc. who prioritise stability and compatibility. Some applications may also include commercial or proprietary optimisations.
 
@@ -24,25 +25,27 @@ channel itself, though individual packages retain their own licenses.<br><br>
 For most use cases `conda-forge` is recommended due to its broader
 package selection, frequency of updates, and lack of licensing restrictions.
 
-> [!IMPORTANT] Licensing discussed here refers to use of the _channel_ and not
-> the _packages_ they contain. Individual packages have their own licensing
-> terms. For example, packages available on both `defaults` and `conda-forge`
-> are typically covered by open-source licenses. However, the `defaults` is more
-> likely to include packages with proprietary components or licensing
-> restrictions.
+> [!IMPORTANT]
+> Licensing discussed here refers to use of the _channel_ and not the _packages_
+> they contain. Individual packages have their own licensing terms. For example,
+> packages available on both `defaults` and `conda-forge` are typically covered
+> by open-source licenses. However, the `defaults` channel is more likely to
+> include packages with proprietary components or licensing restrictions.
 
 ### Other Channels
 Other channels are available such as:
-- `nvidia` – GPU-accelerated libraries
-- `pytorch` – official PyTorch packages
+- `bioconda` — bioinformatics and genomics software
+- `nvidia` — GPU-accelerated libraries
+- `pytorch` — official PyTorch packages
 
 These channels should be used as needed on a case-by-case basis. In most cases,
 the required packages can be found on `conda-forge`, but certain specialized
 packages may only be available in specific channels.
 
-> [!NOTE] Installing packages, such as GPU-accelerated libraries, can usually be
-> done using the `conda-forge` channel. A specialised chanel such as `nvidia`,
-> should be used when there is a special need to do so.
+> [!NOTE]
+> Installing packages, such as GPU-accelerated libraries, can usually be done
+> using the `conda-forge` channel. A specialised chanel such as `nvidia`, should
+> be used when there is a special need to do so.
 
 
 
