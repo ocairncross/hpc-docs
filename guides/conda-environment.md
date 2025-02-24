@@ -13,13 +13,13 @@ Anaconda, Inc. The use of the `defaults` channel is subject to Anaconda Inc's
 licensing terms
 [🢅](https://docs.conda.io/projects/conda/en/stable/user-guide/concepts/channels.html#what-is-a-channel).
 
-> [!NOTE]
-> The University of Queensland is licensed under Anaconda Inc.’s commercial
-> terms to use packages from the `defaults` channel.
-
 Packages available in `defaults` are curated by Anaconda Inc. who prioritise
 stability and compatibility. Some applications may also include commercial or
 proprietary optimisations.
+
+> [!NOTE]
+> The University of Queensland is licensed under Anaconda Inc.’s commercial
+> terms to use packages from the `defaults` channel.
 
 ### Conda Forge Channel
 `conda-forge` is a community-driven open-source channel. It offers a broader
