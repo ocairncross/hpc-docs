@@ -24,7 +24,8 @@ channel itself, though individual packages retain their own licenses.<br><br>
 For most use cases `conda-forge` is recommended due to its broader
 package selection, frequency of updates, and lack of licensing restrictions.
 
-> [!IMPORTANT] Licensing discussed here refers to use of the _channel_ and not
+> [!IMPORTANT]
+> Licensing discussed here refers to use of the _channel_ and not
 > the _packages_ they contain. Individual packages have their own licensing
 > terms. For example, packages available on both `defaults` and `conda-forge`
 > are typically covered by open-source licenses. However, the `defaults` is more
@@ -33,14 +34,16 @@ package selection, frequency of updates, and lack of licensing restrictions.
 
 ### Other Channels
 Other channels are available such as:
-- `nvidia` – GPU-accelerated libraries
-- `pytorch` – official PyTorch packages
+- `bioconda` — bioinformatics and genomics software
+- `nvidia` — GPU-accelerated libraries
+- `pytorch` — official PyTorch packages
 
 These channels should be used as needed on a case-by-case basis. In most cases,
 the required packages can be found on `conda-forge`, but certain specialized
 packages may only be available in specific channels.
 
-> [!NOTE] Installing packages, such as GPU-accelerated libraries, can usually be
+> [!NOTE]
+> Installing packages, such as GPU-accelerated libraries, can usually be
 > done using the `conda-forge` channel. A specialised chanel such as `nvidia`,
 > should be used when there is a special need to do so.
 
