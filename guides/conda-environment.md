@@ -1,8 +1,9 @@
 # Conda
 Conda is a Python environment and package manager. It supports isolated
-environments and enables you to manage dependencies for your Python projects. It
-provides a large set of precompiled binaries for applications such as
-Tensorflow, PyTorch, NumPy, Pandas, and many more.
+environments and allows you to manage dependencies for different Python projects
+without interfering with system-wide packages or each other. It also provides a
+large set of precompiled binaries for applications such as Tensorflow, PyTorch,
+NumPy, Pandas, and many more.
 
 ## Conda Channels
 Conda channels are repositories that host precompiled packages.
@@ -154,21 +155,76 @@ Activate an environment from your default environment location with:
 conda activate <my-env>
 ```
 
-You can also activate environments not in your default location by specifying
-the path with the `-p` or `--prefix` flag:
+You can also activate environments outside your default location by specifying
+its full path:
 ```bash
-conda activate -p /scratch/project/<some-project>/<some-env>`
+conda activate /scratch/project/<some-project>/<some-env>
 ```
 
-After activating and environment python will have access to packages and software installed
-in it. You can check what environment is active with:
+After activating an environment Python will use the packages and dependencies
+installed within it.
+
+To check which environment is currently active and get
+other useful information run:
 ```bash
 conda info
 ```
 
-## Deactivating
-Deactivate your current environment with:<br><br>`conda deactivate`<br><br>Environments must be
-deactivated before they can be deleted.
+## Deactivating as Environment
+Deactivate your current environment by running:
+```bash
+conda deactivate
+```
+Environments must be deactivated before they can be deleted using Conda
+
+## Creating a Conda Environment
+By default, environments are created in the
+[configured](#configuring-default-file-locations)) `envs_dirs` (typically
+$HOME/.conda/envs or /scratch/user/<username>/conda-envs, if configured).
+
+To create a new environment named <my-env>:
+```bash
+conda create --name <my-env>
+```
+This creates an empty environment with no installed packages except Conda itself.
+
+To create an environment with a specific Python version, use:
+```bash
+conda create --name <my-env> python=3.10
+```
+
+To create an environment with Python and specific packages, specify them
+during creation:
+```bash
+conda create --name <my-env> python=3.10 numpy scipy pandas
+```
+
+> [!Note]
+> You may also specify the version of a package. For example `numpy=2.2.3`
+
+To create an environment in a custom location substitute the `--name` flag for
+`--prefix` and specify the environment's path:
+```bash
+conda create --prefix /scratch/project/<some-project>/<some-env>
+```
+As with the `--name` flag you may also specify packages and python versions
+
+More information is available as Conda's
+[Managing environments](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#managing-environments)
+documentation.
+
+
+
+
+<br><br><br><br><br><br><br><br>
+
+---
+
+# **OLD STUFF**
+
+---
+
+
 
 ## The Base Environment
 If you want to simply run python without installing any packages you may do this
