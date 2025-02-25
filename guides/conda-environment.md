@@ -19,7 +19,7 @@ proprietary optimisations.
 
 > [!NOTE]
 > The University of Queensland is licensed under Anaconda Inc.’s commercial
-> terms to use packages from the `defaults` channel.
+> terms to use the `defaults` channel.
 
 ### Conda Forge Channel
 `conda-forge` is a community-driven open-source channel. It offers a broader
@@ -48,72 +48,73 @@ packages may only be available in specific channels.
 
 > [!NOTE]
 > Installing packages, such as GPU-accelerated libraries, can usually be done
-> using the `conda-forge` channel. A specialised chanel such as `nvidia`, should
+> using the `conda-forge` channel. A specialised channel such as `nvidia`, should
 > be used when there is a special need to do so.
 
+## Conda Modules
+Several modules are available on Bunya which provide Conda software that manage Python environments.
 
+- `anaconda3`
+- `miniconda3`
+- `miniforge`
 
-To specify channels, use the `-c` flag during installation:  
+We recommend using the `miniforge` module for creating and managing Python
+environments. If you are using an existing Python environment, it is best to
+load the same module used to create it.<br><br>Note that multiple versions of
+these modules exist. Conda modules are loaded using the `module load`
+command. More information on the module system can be found in the
+[Bunya User Guide](Bunya-User-Guide.md#software).
+
+### **Loading and Initialising Conda Modules**
+After loading a module, an additional step is required to initialise it.
+
+---
+### **Miniforge**  
+Load the module and initialize the environment with the following commands:  
 
 ```bash
-conda install -c conda-forge numpy
+module load miniforge
+mf-init
 ```
+### Miniforge Features
+- Miniforge includes the `mamba` command in addition to `conda`.
+- `mamba` is a drop-in replacement for `conda`, offering faster dependency
+  resolution. The two commands are interchangeable.
+- Environments created with `mamba` are still referred to as **Conda**
+  environments and follow the same configuration methods (e.g., conda.rc).
+- By default, Miniforge uses the `conda-forge` channel for package management.
 
-Conda is a useful tool to create isolated python environments and
-install packages. Three modules on Bunya provide conda.
+---
+### **Anaconda**
+Load the module and initialize the environment with the following commands:
 
-- miniforge
-- anaconda3
-- miniconda3
+```bash
+module load anaconda3
+source $EBROOTANACONDA3/etc/profile.d/conda.sh
+```
+### Anaconda Features
+- By default, Anaconda provides packages from the defaults channel.
 
-We recommend using the miniforge module to manage python environments.
+---
+### **Miniconda**
+Load the module and initialize the environment with the following commands:
 
+```bash
+module load miniconda3
+source $EBROOTMINICONDA3/etc/profile.d/conda.sh
+```
+### Miniconda Features
+- For Bunya users, Miniconda behaves similarly to the Anaconda module.
+- Installing packages with Miniconda may require downloading additional files
+  compared to Anaconda, but this difference is usually negligible.
+- Miniconda uses the `defaults` channel by default.
 
-## Using Conda Modules
-Conda environment modules are loaded with the `module load` command
-[🢅](Bunya-User-Guide.md#software). After loading a module a further command is
-required to initialise it. This is done as follows:
-
-### Miniforge
-Load the module and initialise the environment with the following commands:<br><br>
-`module load miniforge`<br>
-`mf-init`<br><br>
-- Miniforge includes the `mamba` command in addition to `conda`. The mamba
-  command can be used instead of conda and has the same syntax. Think of `mamba`
-  as a faster version of `conda`—the two commands are interchangeable.<br>
-- When `mamba` is used to create an environment, it is still referred to as a
-  _conda_ environment. Also, the configuration methods discussed here (e.g., the
-  conda.rc file) also apply to `mamba`. `mamba` is 100% compatible with `conda`.
-- By default Miniforge provides open source packages from the conda-forge channel
-  whereas, Anaconda can provide packages under the Anaconda Inc. license. For
-  this reason we recommend using the Miniforge module.
-
-### Anaconda
-Load the module and initialise the environment with the following commands:<br><br>
-`module load anaconda3`<br>
-`source $EBROOTANACONDA3/etc/profile.d/conda.sh`<br><br>
-- By default Anaconda provides packages from it's _default_ channel which may
-  require paid licenses
-  [🢅](https://docs.conda.io/projects/conda/en/stable/user-guide/concepts/channels.html#what-is-a-channel).
-  For this reason we recommend using Miniforge if possible. If you require a
-  package only available from Anaconda ensure that you have complied with any
-  licence requierments.
-
-### Miniconda
-Load the module and initialise the environment with the following commands:<br><br>
-`module load miniconda3`<br>
-`source $EBROOTANACONDA3/etc/profile.d/conda.sh`<br><br>
-- Using Miniconda module is practically the same as the Anaconda module for a
-  Bunya user. Installing packages may download more files compared to the
-  Anaconda module but you probably won't notice much difference.
-- Miniconda has the same licence issues as Anaconda.
-
+---
 # Conda Environments
-Conda environments should not be confused with the
-[conda modules](#conda-modules). The modules contain software to manage
-environments whereas, conda environments contain software and packages that run
-your python applications. After loading and initialising a conda module (e.g.,
-Miniconda) you can activate, deactivate, create and delete environments.
+Conda environments (not be confused with [conda modules](#conda-modules))
+contain software and packages that run your python applications. After loading
+and initialising a conda module (e.g., Miniconda) you can activate, deactivate,
+create and delete environments.
 
 ## Activating
 To activate an environment stored in your default environment home, use:<br><br>
