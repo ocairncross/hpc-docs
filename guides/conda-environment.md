@@ -149,6 +149,44 @@ After making these changes:
 > Any existing environments and cached packages in `$HOME/.conda/` will remain there
 > unless they are moved manually or recreated in the new location.
 
+
+## Creating a Conda Environment
+By default, environments are created in the
+[configured](#configuring-default-file-locations) `envs_dirs`. Typically
+$HOME/.conda/envs or /scratch/user/<username>/conda-envs, if configured.
+
+To create a new environment named <my-env>:
+```bash
+conda create --name <my-env>
+```
+
+This creates an empty environment with no installed packages except Conda itself.
+
+To create an environment with a specific Python version, use:
+```bash
+conda create --name <my-env> python=3.10
+```
+
+To create an environment with Python and specific packages, specify them
+during creation:
+```bash
+conda create --name <my-env> python=3.10 numpy scipy pandas
+```
+
+> [!Note]
+> You can specify versions for packages. For example, `numpy=2.2.3`
+
+To create an environment in a custom location substitute the `--name` flag for
+`--prefix` and specify the environment's path:
+```bash
+conda create --prefix /scratch/project/<some-project>/<some-env>
+```
+As with the `--name` flag you can also specify python, packages and versions.
+
+More information is available as Conda's
+[Managing environments](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#managing-environments)
+documentation.
+
 ## Activating an Environment
 Activate an environment from your default environment location with:
 ```bash
@@ -177,43 +215,6 @@ conda deactivate
 ```
 Environments must be deactivated before they can be deleted using Conda
 
-## Creating a Conda Environment
-By default, environments are created in the
-[configured](#configuring-default-file-locations)) `envs_dirs` (typically
-$HOME/.conda/envs or /scratch/user/<username>/conda-envs, if configured).
-
-To create a new environment named <my-env>:
-```bash
-conda create --name <my-env>
-```
-This creates an empty environment with no installed packages except Conda itself.
-
-To create an environment with a specific Python version, use:
-```bash
-conda create --name <my-env> python=3.10
-```
-
-To create an environment with Python and specific packages, specify them
-during creation:
-```bash
-conda create --name <my-env> python=3.10 numpy scipy pandas
-```
-
-> [!Note]
-> You may also specify the version of a package. For example `numpy=2.2.3`
-
-To create an environment in a custom location substitute the `--name` flag for
-`--prefix` and specify the environment's path:
-```bash
-conda create --prefix /scratch/project/<some-project>/<some-env>
-```
-As with the `--name` flag you may also specify packages and python versions
-
-More information is available as Conda's
-[Managing environments](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#managing-environments)
-documentation.
-
-
 
 
 <br><br><br><br><br><br><br><br>
@@ -233,72 +234,6 @@ from the base environment. Activate the base conda environment with:<br><br>
 environment, but you can't install anything into it. To install packages create
 and activate your own environment.
 
-## Creating an Environment
-Create a conda environment called `myenv` in the default location<br><br>
-`conda create myenv`<br><br> A new environment will be created in the default
-location (normally `/home/UserName/.conda`) with latest version of python
-available for Bunya.
-
-
-Please note: By default environments are installed into the `envs` directory in
-your conda directory which is `/home/YourUsername/.conda`. If you need to
-specify a particular location for an environment please
-[here](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#specifying-location).
-
-2. When conda asks you to proceed type `y`
-
-3. To create an environment with a specific python version, for example python 3.9:<br>
-`conda create --name myenv python=3.9`
-
-4. To create an environment with a specific package, for example scipy:<br>
-`conda create --name myenv scipy`<br>
-or<br>
-`conda create --name myenv`<br>
-`conda install --name myenv scipy`<br>
-
-5.  To create an environment with a specific version of Python and multiple packages:<br>
-`conda create --name myenv python=3.9 scipy=0.17.3 astroid babel`
-
-Tip: Install all the programs that you want in this environment at the same
-time. Installing 1 program at a time can lead to dependency conflicts.
-
-## Settings the location of conda environments and package caches
-
-On Bunya your home directory `/home/username` has 50GB of space and 1 million
-files for environments and their packages. However, in case this is not enough
-space in home you can place environments in `/scratch/user/username` where there
-is more space available. The default location for environments can be set in the
-[Conda configuration file](https://docs.conda.io/projects/conda/en/latest/user-guide/configuration/use-condarc.html),
-`.condarc` file. See specifically instructions on envs location
-[here](https://docs.conda.io/projects/conda/en/latest/user-guide/configuration/use-condarc.html#specify-environment-directories-envs-dirs).
-
-In your home directory open the `.condarc` file. You can use `nano` for this or `vi`, what ever you are comfortable with.
-
-The insert these lines:
-
-```
-envs_dirs:
-  - /scratch/rest-of-the-path-of-location/envs
-```
-
-Examples of environment locations can be
-
-`/scratch/user/username/rest-of-path/envs`
-
-or
-
-`/scratch/project/project-name/rest-of-path/envs`
-
-This will allow you to install environments and find them by name. You will not
-need the full path to activate the environment.
-
-## Activating a conda environment
-
-`conda activate myenv`
-
-## Deactivating a conda environment
-
-`conda deactivate myenv`
 
 ## Advice for pip installs
 
