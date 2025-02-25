@@ -25,7 +25,8 @@ proprietary optimisations.
 `conda-forge` is a community-driven open-source channel. It offers a broader
 selection of packages, which are generally more up to date that those in
 `defaults`. There are no licensing requirements on using the `conda-forge`
-channel itself, though individual packages retain their own licenses.<br><br>
+channel itself, though individual packages retain their own licenses.
+
 For most use cases `conda-forge` is recommended due to its broader
 package selection, frequency of updates, and lack of licensing restrictions.
 
@@ -52,21 +53,25 @@ packages may only be available in specific channels.
 > be used when there is a special need to do so.
 
 ## Conda Modules
-Several modules are available on Bunya which provide Conda software that manage Python environments.
+Several Conda modules are available on Bunya for managing Python environments.
 
+- `miniforge`
 - `anaconda3`
 - `miniconda3`
-- `miniforge`
 
 We recommend using the `miniforge` module for creating and managing Python
 environments. If you are using an existing Python environment, it is best to
-load the same module used to create it.<br><br>Note that multiple versions of
-these modules exist. Conda modules are loaded using the `module load`
-command. More information on the module system can be found in the
-[Bunya User Guide](Bunya-User-Guide.md#software).
+load the same module used to create it.
+
+Note that multiple versions of these modules exist—the latest version of
+`miniforge` is `miniforge/24.11.3-0`. Conda modules are loaded using the
+`module load` command. Information on the module system and how to specify
+versions can be found in the [Bunya User Guide](Bunya-User-Guide.md#software).
 
 ### **Loading and Initialising Conda Modules**
-After loading a module, an additional step is required to initialise it.
+If no version is specified, the latest available version of the module is loaded
+by default. After loading a module, an additional step is required to initialise
+it.
 
 ---
 ### **Miniforge**  
