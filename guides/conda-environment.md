@@ -144,7 +144,7 @@ After making these changes:
 - New environments will be created in /scratch/user/<username>/conda/envs.
 - Downloaded package files will be stored in /scratch/user/<username>/conda/pkgs.
 
-> [!!Note]
+> [!Note]
 > Any existing environments and cached packages in `$HOME/.conda/` will remain there
 > unless they are moved manually or recreated in the new location.
 
