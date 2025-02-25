@@ -150,10 +150,11 @@ After making these changes:
 > unless they are moved manually or recreated in the new location.
 
 
+
 ## Creating a Conda Environment
 By default, environments are created in the
 [configured](#configuring-default-file-locations) `envs_dirs`. Typically
-$HOME/.conda/envs or /scratch/user/<username>/conda-envs, if configured.
+`$HOME/.conda/envs` or `/scratch/user/<username>/conda-envs`, if configured.
 
 To create a new environment named <my-env>:
 ```bash
@@ -173,7 +174,7 @@ during creation:
 conda create --name <my-env> python=3.10 numpy scipy pandas
 ```
 
-> [!Note]
+> [!NOTE]
 > You can specify versions for packages. For example, `numpy=2.2.3`
 
 To create an environment in a custom location substitute the `--name` flag for
@@ -208,6 +209,20 @@ other useful information run:
 conda info
 ```
 
+### Modifying an Environment
+When an environment is active packages can be modified with Conda commands such as:
+```bash
+conda install <package>
+conda update <package>
+conda remove <package>
+```
+
+The following links provide detailed information about these commands.
+- install [🢅](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-pkgs.html#installing-packages)
+- removed [🢅](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-pkgs.html#installing-packages)
+- updated [🢅](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-pkgs.html#updating-packages)
+
+
 ## Deactivating as Environment
 Deactivate your current environment by running:
 ```bash
@@ -215,7 +230,10 @@ conda deactivate
 ```
 Environments must be deactivated before they can be deleted using Conda
 
-
+## Removing and Environement
+Remove an environment by running:
+```bash
+conda remove 
 
 <br><br><br><br><br><br><br><br>
 
