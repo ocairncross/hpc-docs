@@ -69,8 +69,8 @@ Note that multiple versions of these modules exist—the latest version of
 versions can be found in the [Bunya User Guide](Bunya-User-Guide.md#software).
 
 ### **Loading and Initialising Conda Modules**
-If no version is specified, the latest available version of the module is loaded
-by default. After loading a module, an additional step is required to initialise
+If no module version is specified, the latest available version of is loaded by
+default. After loading a module, an additional step is required to initialise
 it.
 
 ---
@@ -98,7 +98,7 @@ module load anaconda3
 source $EBROOTANACONDA3/etc/profile.d/conda.sh
 ```
 ### Anaconda Features
-- By default, Anaconda provides packages from the defaults channel.
+- By default, Anaconda provides packages from the `defaults` channel.
 
 ---
 ### **Miniconda**
@@ -116,10 +116,38 @@ source $EBROOTMINICONDA3/etc/profile.d/conda.sh
 
 ---
 # Conda Environments
-Conda environments (not be confused with [conda modules](#conda-modules))
-contain software and packages that run your python applications. After loading
-and initialising a conda module (e.g., Miniconda) you can activate, deactivate,
-create and delete environments.
+Conda environments (not tp be confused with [Conda modules](#conda-modules)) are
+isolated spaces that contain the software and dependencies needed to run your
+Python applications.
+
+Once a Conda module (e.g., Miniconda) is loaded and initialized, you can
+activate, deactivate, create, delete and modify Conda environments.
+
+## Configuring Default File Locations
+By default, Conda stores environments and downloaded package files in your home
+directory (`$HOME/.conda/`). These files can quickly consume a significant amount of storage,
+especially when working with machine learning libraries or GPU-enabled
+packages. Since `/home` has limited quota on Bunya, it is recommended to store
+both Conda environments and the package cache in `/scratch/user/<username>`.
+
+To change the default location update Conda's configuration edit `~/.condarc`
+and ensure it contains these lines:
+```yaml
+envs_dirs:
+  - /scratch/user/<username>/conda/envs
+
+pkgs_dirs:
+  - /scratch/user/<username>/conda/pkgs
+```
+
+After making these changes:
+- New environments will be created in /scratch/user/<username>/conda/envs.
+- Downloaded package files will be stored in /scratch/user/<username>/conda/pkgs.
+
+> [!!Note]
+> Any existing environments and cached packages in `$HOME/.conda/` will remain there
+> unless they are moved manually or recreated in the new location.
+
 
 ## Activating
 To activate an environment stored in your default environment home, use:<br><br>
