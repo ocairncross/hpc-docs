@@ -148,14 +148,23 @@ After making these changes:
 > Any existing environments and cached packages in `$HOME/.conda/` will remain there
 > unless they are moved manually or recreated in the new location.
 
+## Activating an Environment
+Activate an environment from your default environment location with:
+```bash
+conda activate <my-env>
+```
 
-## Activating
-To activate an environment stored in your default environment home, use:<br><br>
-`conda activate my-env`<br><br> After running this command python has access to
-packages and software installed in the my-env environment.<br> You can also
-activate an environment from other locations by specifying the path to the
-environment using:<br><br>`conda activate -p
-/scratch/project/big-data-project/our-env`<br>
+You can also activate environments not in your default location by specifying
+the path with the `-p` or `--prefix` flag:
+```bash
+conda activate -p /scratch/project/<some-project>/<some-env>`
+```
+
+After activating and environment python will have access to packages and software installed
+in it. You can check what environment is active with:
+```bash
+conda info
+```
 
 ## Deactivating
 Deactivate your current environment with:<br><br>`conda deactivate`<br><br>Environments must be
