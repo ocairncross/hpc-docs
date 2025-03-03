@@ -273,7 +273,7 @@ environment to make use of Conda's facilities such as:
 Although it is not recommended to mix Pip and Conda packages, it is possible to
 do so by following these rules:
 - Ensure the Conda environment is activated before using Pip.
-- **always** install the required Conda packages first.
+- **Always** install the required Conda packages first.
 - Avoid modifying the environment with Conda commands after installing packages
   with Pip as it may cause issues. Removing and re-creating the environment is
   generally the best way to fix any problems created.
