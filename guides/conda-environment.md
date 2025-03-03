@@ -141,6 +141,13 @@ pkgs_dirs:
   - /scratch/user/<username>/conda/pkgs
 ```
 
+Alternatively, these commands will set the default locations:
+
+```bash
+conda config --set envs_dirs /scratch/user/<username>/conda/envs
+conda config --set pkgs_dirs /scratch/user/<username>/conda/pkgs
+```
+
 After making these changes:
 - New environments will be created in /scratch/user/<username>/conda/envs.
 - Downloaded package files will be stored in /scratch/user/<username>/conda/pkgs.
@@ -277,55 +284,56 @@ do so by following these rules:
 > It is important **not** to install pip packages in 'bare' or 'empty' Conda
 > environments. Doing so can lead to problems with package paths.
 
-A Conda environment with no Conda packages installed is known as a 'bare' or 'empty' environment.
-Creating an environment using will result in a bare environment.
+A Conda environment with no Conda packages installed is known as a 'bare' or
+'empty' environment. Creating an environment using the following command will
+result in a bare environment.
 ```bash
 conda create --name <my-env-for-pip>
 ```
-Before it can be used for installing Pip applications it must be 'populated' by installing Python. Specifying `python` when creating the Conda environment will install Python automatically:
+Before an environment can be used for installing Pip applications it must be
+'populated' by installing Python. Specifying `python` when creating the Conda
+environment will install Python automatically:
 ```bash
 conda create --name <my-env-for-pip> python=3.10
 ```
 This will create a populated Conda environment `my-env-for-pip` with Python 3.10, ready to install pip applications.
 
-<br><br><br><br><br><br><br><br>
+## Installing Your Own Conda
+If you have installed your own version of Conda do not run the initialisation step which modifies your `$HOME/.bashrc` file. The following is an example of lines added by the initialisation process.
+
+```bash
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/<user>/miniforge3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/<user>/miniforge3/etc/profile.d/conda.sh" ]; then
+        . "/home/<user>/miniforge3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/<user>/miniforge3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+
+if [ -f "/home/<user>/miniforge3/etc/profile.d/mamba.sh" ]; then
+    . "/home/<user>/miniforge3/etc/profile.d/mamba.sh"
+fi
+# <<< conda initialize <<<
+
+```
+
+If this has happened remove the lines between and including `# >>> conda initialize >>>` and `# <<< conda initialise <<<` with a text editor. Or use:
+```bash
+conda init --reverse
+```
+> [!WARNING]
+> Conda initialisation lines in your `$HOME/.bashrc` file will prevent Open
+> OnDemand from working.
 
 ---
+Before using Conda it must initialised. Assuming you installed your own Conda in `/scratch/user/<user>/<my-conda>`, this command will initialise it:
 
-# **OLD STUFF**
-
----
-
-
-
-
-
-## Advice on installing your own conda
-
-Avoid running the conda initialisation which writes to your `.bashrc` file. This
-changes your shell permanently and can cause problems. If your prompt has a
-`(base)` in it when you log in then your `.bashrc` file has already been
-changed. You can reverse this by cleaning up your `.bashrc` file and sourcing
-the `conda.sh` file from your installation. You can then use<br>
-`conda activate`<br> to switch on the conda base environment and<br>
-`conda deactivate` <br> to switch it off again. This is keeping the shell clean
-and conda base and other conda environments can so be loaded for jobs only.
-
-Users can clean their `.bashrc` file by opening it and removing everything
-between and including these two lines<br> `# >>> conda initialize >>>`<br>
-`# <<< conda initialize <<<`<br>
-
-Users can also clean their `.bashrc` file by using `conda init` again with <br>
-`conda init --reverse`<br>
-
-
-## Advice on conda and onBunya usage
-
-If you have the conda initialisation in your `.bashrc` file then you cannot use
-Open OnDemand. To use the virtual desktop in Open OnDemand you need to have
-clean `.bashrc` file. The easiest was to clean it is to run <br>
-`conda init --reverse`<br>
-
-For further information on conda environments please go
-[here](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#).
-
+```bash
+source /scratch/user/<user>/<my-conda>/etc/profile.d/conda.sh
+```
